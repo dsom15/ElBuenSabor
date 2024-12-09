@@ -56,13 +56,13 @@ public class EstadoFinanciero {
     }
     
     private void calcularTotales(List<Venta> ventas) {
-        this.totalRecaudado = ventas.stream()
-                .mapToDouble(Venta::getValorTotalVenta)
-                .sum();
+        this.totalRecaudado = 0.0; // Inicializa el total recaudado
+        this.totalGanancias = 0.0; // Inicializa el total de ganancias
 
-        this.totalGanancias = ventas.stream()
-                .mapToDouble(Venta::getValorGanancia)
-                .sum();
+        // Recorre la lista de ventas
+        for (Venta venta : ventas) {
+            this.totalRecaudado += venta.getValorTotalVenta(); // Suma el total de la venta al total recaudado
+            this.totalGanancias += venta.getValorGanancia(); // Suma la ganancia de la venta al total de ganancias
+        }
     }
-
 }
