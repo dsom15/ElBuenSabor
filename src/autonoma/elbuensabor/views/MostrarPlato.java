@@ -292,23 +292,7 @@ public class MostrarPlato extends javax.swing.JDialog {
 
     private void btnVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVentasActionPerformed
         btnProcesarSeleccionActionPerformed(evt);
-        int fila = this.tablaProductos.getSelectedRow();
-        if (fila >= 0) {
-            Plato platoSeleccionado = this.listaplatos.get(fila);
         
-        // Aquí puedes mostrar un cuadro de diálogo con la información del plato
-            String mensaje = "¿Desea vender el plato:\n" +
-                         "Nombre: " + platoSeleccionado.getNombre() + "\n" +
-                         "Precio: " + platoSeleccionado.getPrecioDeVenta() + "?\n" +
-                         "Por favor confirme la venta.";
-                         
-            int option = JOptionPane.showConfirmDialog(this, mensaje, "Confirmar Venta", JOptionPane.YES_NO_OPTION);
-            if (option == JOptionPane.YES_OPTION) {
-                realizarVenta(platoSeleccionado);
-            }
-       } else {
-        JOptionPane.showMessageDialog(this, "Por favor seleccione un plato para vender.");
-        }
         
     }//GEN-LAST:event_btnVentasActionPerformed
 
