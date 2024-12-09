@@ -4,16 +4,35 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 /**
+ * generacion de archivo de texto 
+ */
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
+/**
  * Se crea la clase Estado Financiero 
  * @author David Steven Ochoa 
  * 1.0.0
  * 08/12/2024
  */
 public class EstadoFinanciero {
-
+    /**
+     * fecha de creacion del estado financiero 
+     */
     private Date fechaGeneracion;
+    /**
+     * total de recaudo es el valor total recaudado en la venta 
+     */
     private double totalRecaudado;
+    /**
+     * total de ganacia son las ganancias totales de las ventas 
+     */
     private double totalGanancias;
+    /**
+     * lista venta es para almacenar las ventas 
+     */
     private List<Venta> ventas ; 
     
     
@@ -69,7 +88,11 @@ public class EstadoFinanciero {
     public String toString() {
         return "EstadoFinanciero{" + "fechaGeneracion=" + fechaGeneracion + ", totalRecaudado=" + totalRecaudado + ", totalGanancias=" + totalGanancias + '}';
     }
-    
+    /**
+     * se calcula el total recaudo 
+     * se calcula el total ganancias 
+     * @param ventas 
+     */
     private void calcularTotales(List<Venta> ventas) {
         this.totalRecaudado = 0.0; 
         this.totalGanancias = 0.0; 
@@ -77,6 +100,14 @@ public class EstadoFinanciero {
         for (Venta venta : ventas) {
             this.totalRecaudado += venta.getValorTotalVenta(); 
             this.totalGanancias += venta.getValorGanancia(); 
+        }
+    }
+    public void guardarEnArchivo(String nombreArchivo) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo, true))) {
+            writer.write(this.toString());
+            writer.newLine();
+        } catch (IOException e) {
+            System.out.println("Error al guardar el estado financiero en el archivo: " + e.getMessage());
         }
     }
 }

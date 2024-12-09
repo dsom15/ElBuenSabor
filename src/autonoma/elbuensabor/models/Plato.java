@@ -9,12 +9,33 @@ import java.util.List;
  * 08/12/2024
  */
 public abstract class Plato {
+    /**
+     * constante contador para tener en cuanta para el identificador unico de cada plato 
+     */
     private static int contadorPlato = 1;
+    /**
+     * nombre del plato 
+     */
     private String nombre;
+    /**
+     * identificador unico de cada plato que se agrega 
+     */
     private long identificadorUnico;
+    /**
+     * precioDeVenta de cada plato que se crea 
+     */
     private double precioDeVenta;
+    /**
+     * costo de fabricacion de cada plato 
+     */
     private double costoFabricacion;
+    /**
+     * descripcion de cada plato 
+     */
     private String descripcionPlato;
+    /**
+     * cantidad de cada plato esto es cuando se va a vender el plato 
+     */
     private int cantidad;
     /////constructor 
 
@@ -87,8 +108,12 @@ public abstract class Plato {
     public String toString() {
         return "Plato{" + "nombre=" + nombre + ", identificadorUnico=" + identificadorUnico + ", precioDeVenta=" + precioDeVenta + ", costoFabricacion=" + costoFabricacion + ", descripcionPlato=" + descripcionPlato + '}';
     }
-
-   // Método abstracto para calcular el precio de venta
+    /**
+     * Metodo abstracto para calcular el precio de venta
+     * es abtracto por que el calculo se hace en la clase plato nacional e internacional 
+     * @return 
+     */
+   // 
     public abstract double calcularPrecioDeVenta();
     
     

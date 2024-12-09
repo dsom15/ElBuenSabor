@@ -10,10 +10,21 @@ import java.util.Date;
  * 08/12/2024
  */
 public class Menu {
-
+    /**
+     * nombre es el nombre del menu 
+     */
     private String nombre;
+    /**
+     * año de creacion del menu 
+     */
     private Date yearcreation; 
+    /**
+     * se crea la lista para guardar los platos creados en el menu 
+     */
     private ArrayList<Plato> listaplatos;
+    /**
+     * plato se llama de la clase plato 
+     */
     private Plato plato;
     
     /////constructor
@@ -66,7 +77,7 @@ public class Menu {
         return this.listaplatos.add(plato);
     }
     
-    ////////////////////////////////////////////////////////////////////////////
+   
     public Plato buscarPlato(Plato plato) {
         for (int i = 0; i < this.listaplatos.size(); i++) {
             Plato p = this.listaplatos.get(i);

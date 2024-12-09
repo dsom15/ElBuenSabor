@@ -9,12 +9,29 @@ import java.util.Date;
  * 08/12/2024
  */
 public class Restaurante {
-
+    /**
+     * nombre es el nomnbre del restaurante 
+     */
     private String nombre;
+    /**
+     * direccion es la direccion del restaurante 
+     */
     private String direccion;
+    /**
+     * telefono es el telefono del restaurante
+     */
     private String telefono; 
+    /**
+     * menu es el menu del restaurante y es llamada de la clase menu 
+     */
     private Menu menu;
+    /**
+     * venta es la venta de cada producto del menu y se llamada de la clase menu 
+     */
     private Venta venta;
+    /**
+     * estado financiero es el estado financiero de las ventas y se llama de la clase estado financiero 
+     */
     private EstadoFinanciero estadoFinanciero;
     
     //////Contructor 
@@ -76,11 +93,9 @@ public class Restaurante {
         this.estadoFinanciero = estadoFinanciero;
     }
     
-    
-    ////////////////////////////////////////////////////////////////////////////
+  
     // Metodo (CRUD) 
     
-    ////////////////////////////////////////////////////////////////////////////
     public boolean agregarPlato(Plato plato) {
         return this.menu.agregarPlato(plato);
     }
@@ -105,9 +120,6 @@ public class Restaurante {
         return this.menu.mostrarMenu();
     }
     
-    
-    
-    
-    
+
 }
 
