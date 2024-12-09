@@ -162,9 +162,9 @@ public class GestionVenta extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(btnGestionVenta2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(91, 91, 91)
+                        .addGap(43, 43, 43)
                         .addComponent(btnSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97))
+                        .addGap(145, 145, 145))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45))))
@@ -214,29 +214,13 @@ public class GestionVenta extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnActualizar;
-    private javax.swing.JButton btnActualizar1;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnEliminar1;
-    private javax.swing.JButton btnGestionVenta;
-    private javax.swing.JButton btnGestionVenta1;
     private javax.swing.JButton btnGestionVenta2;
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnSalir1;
     private javax.swing.JButton btnSalir2;
-    private javax.swing.JButton btnVentas;
-    private javax.swing.JButton btnVentas1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblNombreTienda;
-    private javax.swing.JTable tablaProductos;
-    private javax.swing.JTable tablaProductos1;
     private javax.swing.JTable tablaProductos2;
     // End of variables declaration//GEN-END:variables
 }
