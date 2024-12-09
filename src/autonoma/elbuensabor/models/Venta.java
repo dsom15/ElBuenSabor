@@ -1,5 +1,6 @@
 
 package autonoma.elbuensabor.models;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Venta {
     public Venta(List<Plato> platosVendidos) {
         this.platosVendidos = platosVendidos;
         this.id = Venta.contador;
+        this.fechaVenta=Date.from(Instant.MIN);
         calcularTotales();
         contador++;
     }
