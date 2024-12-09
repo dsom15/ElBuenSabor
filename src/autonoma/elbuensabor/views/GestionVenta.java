@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package autonoma.elbuensabor.views;
+import autonoma.elbuensabor.models.EstadoFinanciero;
 import autonoma.elbuensabor.models.Venta;
 import autonoma.elbuensabor.models.Plato;
 import autonoma.elbuensabor.models.PlatoInternacional;
@@ -18,11 +19,12 @@ import javax.swing.table.DefaultTableModel;
  * @author Dsoch
  */
 public class GestionVenta extends javax.swing.JDialog {
-  private Venta venta;
     private List<Plato> listaplatosVendidos;
+    private EstadoFinanciero estadoFinanciero;
+
 
     // Constructor modificado
-    public GestionVenta(java.awt.Dialog parent, boolean modal, Venta venta) {
+    public GestionVenta(java.awt.Dialog parent, boolean modal, EstadoFinanciero estadoFinanciero) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -32,8 +34,8 @@ public class GestionVenta extends javax.swing.JDialog {
             e.printStackTrace();
         }
 
-        this.venta = venta; // Inicializa la venta
-        this.listaplatosVendidos = venta.getPlatosVendidos(); // Inicializa la lista de platos vendidos
+        this.estadoFinanciero = estadoFinanciero;
+       
 
         // Inicializa el modelo de la tabla
         DefaultTableModel modelDefault = new DefaultTableModel(new Object[]{"Id", "TotalVenta", "Ganancia", "Fecha De Venta"}, 0);
@@ -60,7 +62,7 @@ public class GestionVenta extends javax.swing.JDialog {
         btnSalir2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaProductos2 = new javax.swing.JTable();
-        btnGestionVenta2 = new javax.swing.JButton();
+        btnEstadoFinanciero = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -132,13 +134,18 @@ public class GestionVenta extends javax.swing.JDialog {
         tablaProductos2.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tablaProductos2);
 
-        btnGestionVenta2.setBackground(new java.awt.Color(204, 204, 204));
-        btnGestionVenta2.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
-        btnGestionVenta2.setForeground(new java.awt.Color(0, 0, 0));
-        btnGestionVenta2.setText("Gestion Venta");
-        btnGestionVenta2.addActionListener(new java.awt.event.ActionListener() {
+        btnEstadoFinanciero.setBackground(new java.awt.Color(204, 204, 204));
+        btnEstadoFinanciero.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        btnEstadoFinanciero.setForeground(new java.awt.Color(0, 0, 0));
+        btnEstadoFinanciero.setText("Estado Financiero");
+        btnEstadoFinanciero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEstadoFinancieroMouseClicked(evt);
+            }
+        });
+        btnEstadoFinanciero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionVenta2ActionPerformed(evt);
+                btnEstadoFinancieroActionPerformed(evt);
             }
         });
 
@@ -152,8 +159,8 @@ public class GestionVenta extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGestionVenta2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
+                    .addComponent(btnEstadoFinanciero))
+                .addGap(34, 34, 34))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +168,7 @@ public class GestionVenta extends javax.swing.JDialog {
                 .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnGestionVenta2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEstadoFinanciero, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43)
                         .addComponent(btnSalir2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(145, 145, 145))
@@ -193,15 +200,29 @@ public class GestionVenta extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnSalir2ActionPerformed
 
-    private void btnGestionVenta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionVenta2ActionPerformed
+    private void btnEstadoFinancieroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadoFinancieroActionPerformed
 
-    }//GEN-LAST:event_btnGestionVenta2ActionPerformed
+    }//GEN-LAST:event_btnEstadoFinancieroActionPerformed
+
+    private void btnEstadoFinancieroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstadoFinancieroMouseClicked
+        JOptionPane.showMessageDialog(this, "Total Ganancias: "+estadoFinanciero.getTotalGanancias());
+        JOptionPane.showMessageDialog(this, "Total Recaudo: "+estadoFinanciero.getTotalRecaudado());
+    }//GEN-LAST:event_btnEstadoFinancieroMouseClicked
 
      public void llenarTabla(DefaultTableModel modelDefault) {
-        // Limpiar el modelo actual para evitar duplicados
-        modelDefault.setRowCount(0); // Limpiar filas existentes
+    // Limpiar el modelo actual para evitar duplicados
+    modelDefault.setRowCount(0); // Limpiar filas existentes
 
-        // Crear una fila con los datos de la venta
+    List<Venta> ventas = estadoFinanciero.getVentas();
+
+    if (ventas == null || ventas.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "No hay ventas para mostrar."); 
+
+        
+        return; // Sale del método si no hay ventas
+    }
+
+    for (Venta venta : ventas) {
         Object[] row = new Object[4];
         row[0] = venta.getId(); // ID de la venta
         row[1] = venta.getValorTotalVenta(); // Total de la venta
@@ -211,10 +232,12 @@ public class GestionVenta extends javax.swing.JDialog {
         // Agregar la fila al modelo de la tabla
         modelDefault.addRow(row);
     }
+}
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGestionVenta2;
+    private javax.swing.JButton btnEstadoFinanciero;
     private javax.swing.JButton btnSalir2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;

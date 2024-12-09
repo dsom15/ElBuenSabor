@@ -99,10 +99,10 @@
                   <Component id="jScrollPane3" pref="425" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnSalir2" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                      <Component id="btnGestionVenta2" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+                      <Component id="btnSalir2" min="-2" pref="130" max="-2" attributes="0"/>
+                      <Component id="btnEstadoFinanciero" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -112,7 +112,7 @@
                   <EmptySpace pref="37" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnGestionVenta2" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnEstadoFinanciero" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="btnSalir2" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
@@ -179,7 +179,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnGestionVenta2">
+        <Component class="javax.swing.JButton" name="btnEstadoFinanciero">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -190,10 +190,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Gestion Venta"/>
+            <Property name="text" type="java.lang.String" value="Estado Financiero"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionVenta2ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEstadoFinancieroMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEstadoFinancieroActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

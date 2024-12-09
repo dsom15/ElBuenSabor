@@ -1,5 +1,6 @@
 
 package autonoma.elbuensabor.models;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 /**
@@ -13,14 +14,19 @@ public class EstadoFinanciero {
     private Date fechaGeneracion;
     private double totalRecaudado;
     private double totalGanancias;
+    private List<Venta> ventas ; 
+    
+    
     ////constructor 
    public EstadoFinanciero(List<Venta> ventas) {
+        this.ventas= ventas;
         this.fechaGeneracion = new Date();
         calcularTotales(ventas);
     }
-
+   
     // Constructor vacío
     public EstadoFinanciero() {
+        this.ventas = new ArrayList<>(); 
         this.fechaGeneracion = new Date();
         this.totalRecaudado = 0.0;
         this.totalGanancias = 0.0;
@@ -49,6 +55,15 @@ public class EstadoFinanciero {
     public void setTotalGanancias(double totalGanancias) {
         this.totalGanancias = totalGanancias;
     }
+    
+    public List<Venta> getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(List<Venta> ventas) {
+        this.ventas = ventas;
+    }
+    
     ///metodo
     @Override
     public String toString() {

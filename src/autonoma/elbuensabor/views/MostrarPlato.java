@@ -9,6 +9,7 @@ import autonoma.elbuensabor.models.Venta;
 import autonoma.elbuensabor.models.EstadoFinanciero;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.AbstractCellEditor;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -28,6 +29,10 @@ public class MostrarPlato extends javax.swing.JDialog {
     private VentanaPrincipal ventanaPricipal;
     private ArrayList<Plato> listaplatos;
     private Venta venta;
+    private EstadoFinanciero estadoFinanciero;
+    private ArrayList<Venta> ventas;
+    
+    
     /**
      * Creates new form MostrarPlato
      */
@@ -44,6 +49,8 @@ public class MostrarPlato extends javax.swing.JDialog {
         this.listaplatos = restaurante.getMenu().getListaplatos();
         this.ventanaPricipal = ventana;
         this.llenarTabla();
+        this.ventas = new ArrayList<>();
+        
     }
 
     /**
@@ -301,7 +308,7 @@ public class MostrarPlato extends javax.swing.JDialog {
     }//GEN-LAST:event_btnGestionVentaActionPerformed
 
     private void btnGestionVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionVentaMouseClicked
-        GestionVenta VentanaGestionVenta = new GestionVenta(this, true, this.venta);
+        GestionVenta VentanaGestionVenta = new GestionVenta(this, true, this.estadoFinanciero);
         VentanaGestionVenta.setVisible(true);
     }//GEN-LAST:event_btnGestionVentaMouseClicked
      private void realizarVenta(Plato plato) {
@@ -405,8 +412,18 @@ private void btnProcesarSeleccionActionPerformed(java.awt.event.ActionEvent evt)
         JOptionPane.showMessageDialog(this, "Por favor seleccione al menos un plato.");
     } else {
         String mensaje = "Platos seleccionados:\n";
-        venta = new Venta(platosSeleccionados);
-        JOptionPane.showMessageDialog(this, venta.getValorTotalVenta());
+        
+        // Crear la nueva venta con los platos seleccionados
+        Venta venta = new Venta(platosSeleccionados);
+        
+        // Agregar la nueva venta a la lista existente
+        ventas.add(venta);
+        
+        // Actualizar el estado financiero (si es necesario)
+        estadoFinanciero = new EstadoFinanciero(ventas);
+
+        // Mostrar el ID de la última venta agregada
+        JOptionPane.showMessageDialog(this, "Venta procesada con ID: " + venta.getId());
 
         for (Plato plato : platosSeleccionados) {
             mensaje += "- " + plato.getNombre() + "\n";
@@ -414,6 +431,7 @@ private void btnProcesarSeleccionActionPerformed(java.awt.event.ActionEvent evt)
         JOptionPane.showMessageDialog(this, mensaje);
     }
 }
+
 
     /**
      * @param args the command line arguments

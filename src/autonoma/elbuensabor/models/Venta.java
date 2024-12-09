@@ -20,7 +20,7 @@ public class Venta {
     public Venta(List<Plato> platosVendidos) {
         this.platosVendidos = platosVendidos;
         this.id = Venta.contador;
-        this.fechaVenta=Date.from(Instant.MIN);
+        this.fechaVenta=Date.from(Instant.now());
         calcularTotales();
         contador++;
     }
