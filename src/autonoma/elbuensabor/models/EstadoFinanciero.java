@@ -56,13 +56,12 @@ public class EstadoFinanciero {
     }
     
     private void calcularTotales(List<Venta> ventas) {
-        this.totalRecaudado = 0.0; // Inicializa el total recaudado
-        this.totalGanancias = 0.0; // Inicializa el total de ganancias
-
+        this.totalRecaudado = 0.0; 
+        this.totalGanancias = 0.0; 
         // Recorre la lista de ventas
         for (Venta venta : ventas) {
-            this.totalRecaudado += venta.getValorTotalVenta(); // Suma el total de la venta al total recaudado
-            this.totalGanancias += venta.getValorGanancia(); // Suma la ganancia de la venta al total de ganancias
+            this.totalRecaudado += venta.getValorTotalVenta(); 
+            this.totalGanancias += venta.getValorGanancia(); 
         }
     }
 }
